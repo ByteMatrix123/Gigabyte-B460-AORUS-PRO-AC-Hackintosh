@@ -1,0 +1,21 @@
+AMI USB Driver
+AMI NTFS Driver
+Serial ATA Controller Initialization Driver
+Generic Disk I/O Driver
+Partition Driver(MBR/GPT/El Torito)
+PCI Serial Driver
+Integrated Touch Driver
+Ami HID keyboard Driver
+Ami HID Absolute Pointer
+Ami HID Simple Pointer
+HttpDxe
+VLAN Configuration Driver
+DNS Network Service Driver
+FAT File System Driver
+Intel(R) Gigabit 0.9.02
+Intel UEFI WLAN Driver
+Intel(R) Gigabit 0.0.29
+Intel(R) GOP Driver [9.0.1105]
+AMD GOP X64 Release Driver Rev.1.61.0.15.50.Jan 12 2017.11:16:18
+HFS File System Driver
+APFS
