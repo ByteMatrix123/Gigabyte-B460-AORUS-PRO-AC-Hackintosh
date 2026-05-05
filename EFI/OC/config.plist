@@ -1258,23 +1258,23 @@
 			<key>AdviseFeatures</key>
 			<false/>
 			<key>MLB</key>
-			<string>C02109102GU0000CB</string>
+			<string>C02124104CDPHC1UE</string>
 			<key>MaxBIOSVersion</key>
 			<false/>
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
-			<data>pSwPNxur</data>
+			<data>FJni/sMb</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemMemoryStatus</key>
 			<string>Auto</string>
 			<key>SystemProductName</key>
-			<string>iMac20,2</string>
+			<string>iMac20,1</string>
 			<key>SystemSerialNumber</key>
-			<string>C02FCAYZ046M</string>
+			<string>C02FV5Z1PN5T</string>
 			<key>SystemUUID</key>
-			<string>79D7A820-FDAB-4646-9CAB-02D985E67897</string>
+			<string>5FE0B241-8EE2-415D-AD99-00975A4956D1</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
