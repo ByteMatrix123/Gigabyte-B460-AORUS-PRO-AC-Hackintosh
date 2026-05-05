@@ -16,7 +16,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-EC-USBX - fake EC and USB power properties</string>
+				<string>SSDT-EC-USBX - Fake EC and USB power properties</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -24,7 +24,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-AWAC - disable AWAC and enable RTC on Darwin</string>
+				<string>SSDT-AWAC - Disable AWAC and enable RTC on Darwin</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -32,7 +32,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-SBUS-MCHC - add MCHC/BUS0 SMBus devices</string>
+				<string>SSDT-SBUS-MCHC - Add MCHC/BUS0 SMBus devices</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -40,7 +40,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>DMAR - patched table without Reserved Memory Regions</string>
+				<string>DMAR - Patched table without Reserved Memory Regions</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>

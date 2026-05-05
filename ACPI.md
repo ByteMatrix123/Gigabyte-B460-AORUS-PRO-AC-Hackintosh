@@ -379,15 +379,13 @@ Tools/iasl -d -p /tmp/DMAR-verify EFI/OC/ACPI/DMAR.aml
 - 只存在 `Subtable Type : 0000 [Hardware Unit Definition]`
 - 不存在 `Subtable Type : 0001 [Reserved Memory Region]`
 
-## OpenCore 配置要求
+## OpenCore 配置现状
 
-当前仓库没有 `EFI/OC/config.plist`，因此本次只生成 ACPI 文件，没有直接修改 OpenCore 配置。
-
-后续需要在 `config.plist` 中加入以下内容。
+当前仓库已包含 `EFI/OC/config.plist`，并已把本文件记录的 ACPI 文件落实到 OpenCore 配置中。
 
 ### ACPI -> Add
 
-建议启用：
+当前已启用：
 
 ```text
 SSDT-PLUG.aml
@@ -397,42 +395,42 @@ SSDT-SBUS-MCHC.aml
 DMAR.aml
 ```
 
-每项应设置：
+每项均设置为：
 
 ```text
-Enabled = YES
+Enabled = true
 Path    = 对应文件名
 ```
 
-`Comment` 可按文件用途填写，例如：
+当前注释如下：
 
 ```text
 SSDT-PLUG       - CPU power management plugin-type
 SSDT-EC-USBX    - Fake EC and USB power properties
 SSDT-AWAC       - Disable AWAC and enable RTC on Darwin
 SSDT-SBUS-MCHC  - Add MCHC/BUS0 SMBus devices
-DMAR            - Patched DMAR without Reserved Memory Regions
+DMAR            - Patched table without Reserved Memory Regions
 ```
 
 ### ACPI -> Delete
 
-使用 `DMAR.aml` 时必须 Drop 原始 DMAR 表：
+当前已 Drop 原始 DMAR 表：
 
 ```text
-Comment        = Drop DMAR Table
-Enabled        = YES
-All            = YES
-TableSignature = 444D4152
+Comment        = Drop original DMAR table
+Enabled        = true
+All            = true
+TableSignature = DMAR
 ```
 
-`444D4152` 是 ASCII `DMAR` 的十六进制表签名。
+`config.plist` 中的 `TableSignature` 使用 base64 编码保存，对应 ASCII `DMAR`。
 
 ### Kernel -> Quirks
 
-使用修补后的 DMAR 表后，建议：
+使用修补后的 DMAR 表后，当前配置为：
 
 ```text
-DisableIoMapper = False
+DisableIoMapper = false
 ```
 
 这与 Dortania DMAR 方法一致，目标是在保留 VT-d 的情况下避免 RMRR 导致的问题。
@@ -458,4 +456,4 @@ DisableIoMapper = True
 - `*.dsl` 是可读源文件，后续修改应优先改 DSL 后重新编译。
 - `*.aml` 是 OpenCore 实际加载的二进制文件。
 - BIOS 升级或重新采集 SysReport 后，应重新核对 DSDT/DMAR，尤其是 `PR00`、`LPCB`、`STAS`、`SBUS`、DMAR RMRR 子表是否变化。
-- 如果后续补充 `config.plist` 到仓库，应同步把本文件中的 OpenCore 配置要求落实到 `ACPI -> Add`、`ACPI -> Delete` 和 `Kernel -> Quirks`。
+- 如果后续调整 `config.plist`，应同步更新本文件中的 `ACPI -> Add`、`ACPI -> Delete` 和 `Kernel -> Quirks` 记录。
