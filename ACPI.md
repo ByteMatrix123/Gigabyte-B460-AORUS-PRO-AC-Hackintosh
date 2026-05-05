@@ -2,7 +2,7 @@
 
 本文档记录当前 OpenCore Hackintosh 工程中 ACPI 文件的手动制作过程、依据、验证结果和后续配置要求。
 
-本次工作严格基于 Dortania 的 Getting Started With ACPI 指南，并结合仓库内已有的 `SysReport` 与 `Tools/iasl` 完成。所有 ACPI 源文件和编译后的二进制文件均位于 `EFI/OC/ACPI`。
+本次工作严格基于 Dortania 的 Getting Started With ACPI 指南，并结合仓库内已有的 `SysReport` 与系统 PATH 中安装好的 `iasl` 完成。所有 ACPI 源文件和编译后的二进制文件均位于 `EFI/OC/ACPI`。
 
 参考文档：
 
@@ -338,10 +338,10 @@ PCI Path              : 1E,06
 
 ## 编译与验证
 
-所有 SSDT 使用仓库内 `Tools/iasl` 编译：
+所有 SSDT 使用系统 PATH 中安装好的 `iasl` 编译：
 
 ```bash
-Tools/iasl -ve \
+iasl -ve \
   EFI/OC/ACPI/SSDT-PLUG.dsl \
   EFI/OC/ACPI/SSDT-EC-USBX.dsl \
   EFI/OC/ACPI/SSDT-AWAC.dsl \
@@ -357,7 +357,7 @@ Compilation complete. 0 Errors, 0 Warnings, 0 Remarks
 DMAR 使用表级编译：
 
 ```bash
-Tools/iasl EFI/OC/ACPI/DMAR.dsl
+iasl EFI/OC/ACPI/DMAR.dsl
 ```
 
 结果：
@@ -370,7 +370,7 @@ Compilation complete. 0 Errors, 0 Warnings, 0 Remarks
 DMAR 反编译复核：
 
 ```bash
-Tools/iasl -d -p /tmp/DMAR-verify EFI/OC/ACPI/DMAR.aml
+iasl -d -p /tmp/DMAR-verify EFI/OC/ACPI/DMAR.aml
 ```
 
 复核结果：

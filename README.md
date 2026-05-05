@@ -142,6 +142,8 @@ ACPI.md           ACPI 制作与验证记录
 
 ## 验证
 
+仓库不内置维护工具；`iasl`、`ocvalidate` 等工具应由系统自行安装，并可从 PATH 中直接调用。
+
 使用与当前 OpenCore 版本匹配的 `ocvalidate` 校验：
 
 ```bash
