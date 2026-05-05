@@ -494,7 +494,7 @@
 				<key>Comment</key>
 				<string>AppleALC.kext</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AppleALC</string>
 				<key>MaxKernel</key>
