@@ -1,6 +1,6 @@
 # Gigabyte B460 AORUS PRO AC Hackintosh
 
-适用于 Gigabyte B460 AORUS PRO AC 的 OpenCore EFI 配置。当前仓库以 Intel Comet Lake 平台、AMD Polaris 独显、OpenCore 1.0.7 DEBUG 为基础，包含已编译的 ACPI、Kext、UEFI 驱动和一份可通过 `ocvalidate` 校验的 `config.plist`。
+适用于 Gigabyte B460 AORUS PRO AC 的 OpenCore EFI 配置。当前仓库以 Intel Comet Lake 平台、AMD Polaris 独显、OpenCore 1.0.7 RELEASE 为基础，包含已编译的 ACPI、Kext、UEFI 驱动和一份可通过 `ocvalidate` 校验的 `config.plist`。
 
 > 使用前请先生成并替换自己的 `PlatformInfo`，不要直接复用仓库中的序列号、MLB、ROM 或 UUID。
 
@@ -25,16 +25,16 @@
 
 ## 当前状态
 
-- OpenCore: `1.0.7 DEBUG`
+- OpenCore: `1.0.7 RELEASE`
 - `config.plist`: 已通过 OpenCore 1.0.7 的 `ocvalidate` 校验
-- 启动参数: `-v debug=0x100 keepsyms=1`
+- 启动参数: 空
 - SIP: `csr-active-config = 00000000`
 - Picker: Builtin，显示启动菜单，超时 5 秒
 - APFS: `MinDate = 0`，`MinVersion = 0`
 - VT-d: 使用修补后的 `DMAR.aml`，`DisableIoMapper = false`
 - 有线网卡: 已启用 I225-V 内核补丁，适用于 Catalina 到 Big Sur 11.3 或更早版本
 
-这是偏调试的配置，便于排障。稳定使用后可按需切换到 RELEASE 版 OpenCore，并移除 verbose/debug 启动参数。
+当前配置已切换为 RELEASE 版 OpenCore，并关闭 verbose/debug 启动参数。
 
 ## 目录结构
 
@@ -171,6 +171,6 @@ iasl EFI/OC/ACPI/DMAR.dsl
 - 修改 ACPI 时优先编辑 `*.dsl`，再重新编译生成 `*.aml`。
 - 更新 OpenCore 后必须使用对应版本的 `ocvalidate` 重新检查 `config.plist`。
 - 更新 Kext 后应重新执行 Snapshot，并确认加载顺序。
-- 切换到 OpenCore RELEASE 后，应同步调整 `Misc -> Debug`、`boot-args` 和文档中的当前状态说明。
+- 切换 OpenCore 构建类型后，应同步调整 `Misc -> Debug`、`boot-args` 和文档中的当前状态说明。
 - BIOS 更新、硬件更换或重新采集 SysReport 后，应重新核对 ACPI 路径和 DMAR 内容。
 - 不建议把可直接关联 Apple ID/iMessage 的 SMBIOS 身份信息公开到公共仓库。
