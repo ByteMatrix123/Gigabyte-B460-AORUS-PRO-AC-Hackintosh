@@ -27,7 +27,7 @@
 
 - OpenCore: `1.0.8 RELEASE`（2026-09-27，[官方发布](https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.8)）
 - `config.plist`: 已通过 OpenCore 1.0.8 的 `ocvalidate` 校验
-- 启动参数: 空
+- 启动参数: `keepsyms=1`
 - SIP: `csr-active-config = 00000000`
 - Picker: Builtin，显示启动菜单，超时 5 秒
 - APFS: `MinDate = 0`，`MinVersion = 0`
@@ -72,6 +72,8 @@ ACPI.md           ACPI 制作与验证记录
 | Kext | 版本 | 当前状态 |
 | --- | --- | --- |
 | `Lilu.kext` | 1.7.2 | 启用 |
+| `AppleALC.kext` | 1.9.8 | 启用 |
+| `SimpleHDA.kext` | 1.0.0 | 启用，仅 Tahoe |
 | `VirtualSMC.kext` | 1.3.8 | 启用 |
 | `SMCProcessor.kext` | 1.3.8 | 启用 |
 | `SMCSuperIO.kext` | 1.3.8 | 启用 |
@@ -99,6 +101,7 @@ Kext 版本已于 2026-10-24 按各项目的官方稳定版核对，使用 RELEA
 
 - `PciRoot(0x0)/Pci(0x2,0x0)`: Intel iGPU 注入 `AAPL,ig-platform-id`
 - `PciRoot(0x0)/Pci(0x1C,0x4)/Pci(0x0,0x0)`: Intel I225-V 注入 `device-id`
+- `PciRoot(0x0)/Pci(0x1F,0x3)`: HDA 注入 `layout-id = 1`（Data `01000000`）
 
 ## Kernel Patch
 
