@@ -1,6 +1,6 @@
 # Gigabyte B460 AORUS PRO AC Hackintosh
 
-适用于 Gigabyte B460 AORUS PRO AC 的 OpenCore EFI 配置。当前仓库以 Intel Comet Lake 平台、AMD Polaris 独显、OpenCore 1.0.7 RELEASE 为基础，包含已编译的 ACPI、Kext、UEFI 驱动和一份可通过 `ocvalidate` 校验的 `config.plist`。
+适用于 Gigabyte B460 AORUS PRO AC 的 OpenCore EFI 配置。当前仓库以 Intel Comet Lake 平台、AMD Polaris 独显、OpenCore 1.0.8 RELEASE 为基础，包含已编译的 ACPI、Kext、UEFI 驱动和一份可通过 `ocvalidate` 校验的 `config.plist`。
 
 > 使用前请先生成并替换自己的 `PlatformInfo`，不要直接复用仓库中的序列号、MLB、ROM 或 UUID。
 
@@ -25,8 +25,8 @@
 
 ## 当前状态
 
-- OpenCore: `1.0.7 RELEASE`
-- `config.plist`: 已通过 OpenCore 1.0.7 的 `ocvalidate` 校验
+- OpenCore: `1.0.8 RELEASE`（2026-09-27，[官方发布](https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.8)）
+- `config.plist`: 已通过 OpenCore 1.0.8 的 `ocvalidate` 校验
 - 启动参数: 空
 - SIP: `csr-active-config = 00000000`
 - Picker: Builtin，显示启动菜单，超时 5 秒
@@ -34,7 +34,7 @@
 - VT-d: 使用修补后的 `DMAR.aml`，`DisableIoMapper = false`
 - 有线网卡: 已启用 I225-V 内核补丁，适用于 Catalina 到 Big Sur 11.3 或更早版本
 
-当前配置已切换为 RELEASE 版 OpenCore，并关闭 verbose/debug 启动参数。
+当前配置使用 RELEASE 版 OpenCore，并关闭 verbose/debug 启动参数。已同步更新 `BOOTx64.efi`、`OpenCore.efi`、`OpenRuntime.efi` 和 `ResetNvramEntry.efi`，并在全部 UEFI 驱动条目中添加 1.0.8 新增的 `HideVerbose = false`，保留原有驱动输出行为。
 
 ## 目录结构
 
@@ -146,7 +146,9 @@ ocvalidate EFI/OC/config.plist
 本仓库当前结果：
 
 ```text
-Completed validating EFI/OC/config.plist in 2 ms. No issues found.
+NOTE: This version of ocvalidate is only compatible with OpenCore version 1.0.8!
+
+Completed validating EFI/OC/config.plist in 0 ms. No issues found.
 ```
 
 使用 `iasl` 重新编译 ACPI：
