@@ -80,7 +80,6 @@ ACPI.md           ACPI 制作与验证记录
 | `RestrictEvents.kext` | 1.1.6 | 启用 |
 | `USBToolBox.kext` | 1.2.0 | 启用 |
 | `UTBDefault.kext` | 1.0 | 启用 |
-| `AppleALC.kext` | 1.9.7 | 已放入 EFI，但当前未启用 |
 
 当前未包含 Intel Wi-Fi/Bluetooth 相关 Kext。若需要启用无线网络或蓝牙，应按目标 macOS 版本自行补充并重新 Snapshot。
 
@@ -98,9 +97,6 @@ ACPI.md           ACPI 制作与验证记录
 
 - `PciRoot(0x0)/Pci(0x2,0x0)`: Intel iGPU 注入 `AAPL,ig-platform-id`
 - `PciRoot(0x0)/Pci(0x1C,0x4)/Pci(0x0,0x0)`: Intel I225-V 注入 `device-id`
-- `PciRoot(0x0)/Pci(0x1F,0x3)`: 声卡注入 `layout-id = 1`
-
-注意：`AppleALC.kext` 当前未启用，即使已注入声卡 layout-id，也不代表内建声卡已经可用。
 
 ## Kernel Patch
 
@@ -117,9 +113,8 @@ ACPI.md           ACPI 制作与验证记录
 1. 使用 GenSMBIOS 或 OpenCore 官方工具生成自己的 `SystemProductName`、`SystemSerialNumber`、`MLB`、`SystemUUID` 和 `ROM`。
 2. 用 ProperTree 打开 `EFI/OC/config.plist`，执行 `OC Snapshot`，确认 ACPI、Drivers、Kexts 与实际文件一致。
 3. 按自己的硬件确认 USB 端口定制。当前使用 `UTBDefault.kext`，不应视为最终 USB Map。
-4. 若需要声卡，启用 `AppleALC.kext` 后测试 `layout-id` 是否适合本机。
-5. 若需要 Intel Wi-Fi/Bluetooth，补充对应 Kext，并确认与目标 macOS 版本兼容。
-6. 将 `EFI` 放入 EFI 分区前，建议先用 U 盘启动测试。
+4. 若需要 Intel Wi-Fi/Bluetooth，补充对应 Kext，并确认与目标 macOS 版本兼容。
+5. 将 `EFI` 放入 EFI 分区前，建议先用 U 盘启动测试。
 
 ## BIOS 建议
 

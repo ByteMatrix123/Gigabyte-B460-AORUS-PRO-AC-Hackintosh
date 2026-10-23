@@ -334,7 +334,7 @@ PCI Path              : 1E,06
 - 未收到与声卡、IRQ 冲突、HPET 相关的实际故障反馈
 - 不应在没有故障证据时添加额外 IRQ patch
 
-后续如出现 AppleALC 声卡无输出、IRQ 冲突或睡眠唤醒异常，再单独基于日志和 IORegistry 判断。
+后续如出现声卡无输出、IRQ 冲突或睡眠唤醒异常，再单独基于日志和 IORegistry 判断。
 
 ## 编译与验证
 
