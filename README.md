@@ -72,14 +72,16 @@ ACPI.md           ACPI 制作与验证记录
 | Kext | 版本 | 当前状态 |
 | --- | --- | --- |
 | `Lilu.kext` | 1.7.2 | 启用 |
-| `VirtualSMC.kext` | 1.3.7 | 启用 |
-| `SMCProcessor.kext` | 1.3.7 | 启用 |
-| `SMCSuperIO.kext` | 1.3.7 | 启用 |
-| `WhateverGreen.kext` | 1.7.0 | 启用 |
+| `VirtualSMC.kext` | 1.3.8 | 启用 |
+| `SMCProcessor.kext` | 1.3.8 | 启用 |
+| `SMCSuperIO.kext` | 1.3.8 | 启用 |
+| `WhateverGreen.kext` | 1.7.1 | 启用 |
 | `NVMeFix.kext` | 1.1.3 | 启用 |
 | `RestrictEvents.kext` | 1.1.6 | 启用 |
 | `USBToolBox.kext` | 1.2.0 | 启用 |
 | `UTBDefault.kext` | 1.0 | 启用 |
+
+Kext 版本已于 2026-10-24 按各项目的官方稳定版核对，使用 RELEASE 构建。本次将 VirtualSMC、SMCProcessor、SMCSuperIO 从 1.3.7 更新至 1.3.8，WhateverGreen 从 1.7.0 更新至 1.7.1；其余五个 Kext 已与最新官方 RELEASE 包逐文件比对一致。下载包均通过 GitHub 发布资产提供的 SHA-256 校验。
 
 当前未包含 Intel Wi-Fi/Bluetooth 相关 Kext。若需要启用无线网络或蓝牙，应按目标 macOS 版本自行补充并重新 Snapshot。
 
